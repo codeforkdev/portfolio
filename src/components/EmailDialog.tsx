@@ -1,22 +1,12 @@
 "use client";
 import { CheckIcon } from "lucide-react";
-import { sendEmail } from "@/actions/email";
+// import { sendEmail } from "@/actions/email";
 import { Dialog } from "@/components/radix";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
 import toast from "react-hot-toast";
-
-const schema = z.object({
-  firstName: z.string().trim().min(1, { message: "required" }),
-  lastName: z.string().trim().min(1, { message: "required" }),
-  company: z.string().trim().min(1, { message: "required" }),
-  email: z.string().trim().email(),
-  message: z.string().trim().min(1, { message: "required" }),
-});
-
-type schema = z.infer<typeof schema>;
+import { TContactSchema, contactSchema } from "@/schema";
 
 export default function EmailDialogBtn({
   children,
@@ -29,12 +19,18 @@ export default function EmailDialogBtn({
     handleSubmit,
     reset,
     formState: { errors, isValid, isSubmitting, isLoading },
-  } = useForm<schema>({
-    resolver: zodResolver(schema),
+  } = useForm<TContactSchema>({
+    resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit: SubmitHandler<schema> = async (data) => {
-    const response = await sendEmail(data);
+  const onSubmit: SubmitHandler<TContactSchema> = async (data) => {
+    const response = await fetch("/api/send/contact", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+    const json = await response.json();
+
+    console.log(json);
 
     toast(() => {
       if (response.ok) {

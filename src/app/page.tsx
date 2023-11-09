@@ -9,8 +9,8 @@ export default function Home() {
           IPA /nɔ.ɛl/ - team player, honest, self motivated
         </p>
         <p className="text-neutral-300 leading-[1.6rem]">
-          Hi there, I'm <b className="text-neutral-200">Noel</b> aka{" "}
-          <b className="text-neutral-200">codefork</b>. I'm 28 y/o and have
+          Hi there, I&apos;m <b className="text-neutral-200">Noel</b> aka{" "}
+          <b className="text-neutral-200">codefork</b>. I&apos;m 28 y/o and have
           worked the last 5 years of my career as a data migration engineer. The
           last couple years of my career was spent writing automation scripts
           for data migration processing and to scale these processes across
@@ -26,8 +26,8 @@ export default function Home() {
         <p className="text-neutral-300  leading-[1.6rem]">
           In my previous position I assigned myself with creating a solution
           which would allow the team to process data and manage migrations in
-          various environments through a web app. During this process I've fell
-          in love with creating web apps/solutions and listening to user
+          various environments through a web app. During this process I&apos;ve
+          fell in love with creating web apps/solutions and listening to user
           feedback.
         </p>
       </section>
