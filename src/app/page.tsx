@@ -39,6 +39,7 @@ export default function Home() {
           <h3 className="mb-2 text-neutral-200 font-bold text-xl">Projects</h3>
           <Link
             href="/resume"
+            target="_blank"
             className=" text-neutral-200 hover:text-amber-300 flex gap-2 items-baseline text-xl font-semibold transition-colors"
           >
             Resume
