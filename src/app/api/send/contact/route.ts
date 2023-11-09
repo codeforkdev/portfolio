@@ -7,22 +7,22 @@ import { contactSchema } from "@/schema";
 const resend = new Resend(process.env.RESEND);
 
 export async function POST(request: NextRequest) {
-  const data = request.json();
+  const data = await request.json();
   const contactData = contactSchema.parse(data);
   try {
     const { data, error } = await resend.emails.send({
       from: "portfolio <contact@noelvega.dev>",
-      to: contactData.email,
+      to: "noel@noelvega.dev",
       subject: `Contact Inquire: ${contactData.company}`,
       react: WorkInquire(contactData) as React.ReactElement,
     });
 
     if (error) {
-      return NextResponse.json({ error });
+      return NextResponse.json({ ok: false });
     }
 
-    return NextResponse.json({ data });
+    return NextResponse.json({ ok: true });
   } catch (error) {
-    return NextResponse.json({ error });
+    return NextResponse.json({ ok: false });
   }
 }
