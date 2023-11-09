@@ -1,5 +1,11 @@
 import { ExternalLinkIcon } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Portfolio home page",
+};
 
 export default function Home() {
   return (
