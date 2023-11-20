@@ -3,17 +3,15 @@ import Poll from "./_components/Poll";
 import Code from "./Highlight";
 
 export default async function Page() {
-  let poll = {};
-  try {
-    const response = await fetch(
-      "https://portfolio-party.codeforkdev.partykit.dev",
-      {
-        next: { revalidate: 0 },
-      }
-    );
+  const response = await fetch(
+    "https://portfolio-party.codeforkdev.partykit.dev/parties/poll/test",
+    // "http://localhost:1999",
+    {
+      next: { revalidate: 0 },
+    }
+  );
 
-    poll = await response.json();
-  } catch {}
+  const poll = await response.json();
 
   return (
     <div>

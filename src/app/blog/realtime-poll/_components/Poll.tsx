@@ -11,6 +11,7 @@ export default function Poll({ poll }: { poll: Record<string, number> }) {
   );
   const ws = usePartySocket({
     host: "https://portfolio-party.codeforkdev.partykit.dev",
+    // host: "http://localhost:1999",
     room: "test",
     party: "poll",
     onMessage: (evt) => {
