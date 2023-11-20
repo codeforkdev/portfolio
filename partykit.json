@@ -1,0 +1,8 @@
+{
+  "name": "portfolio-party",
+  "main": "party/index.ts",
+  "compatibilityDate": "2023-11-19",
+  "parties": {
+    "poll": "party/poll.ts"
+  }
+}

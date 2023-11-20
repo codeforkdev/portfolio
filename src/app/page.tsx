@@ -69,10 +69,36 @@ export default function Home() {
 
       <section>
         <h3 className="mb-2 text-neutral-200 font-bold text-xl">Blog</h3>
+        <ul>
+          <BlogPost
+            title="Realtime polls with Partykit & Nextjs"
+            date={new Date()}
+          />
+        </ul>
       </section>
     </>
   );
 }
+
+const BlogPost = ({ title, date }: { title: string; date: Date }) => {
+  return (
+    <li className="text-neutral-200 ">
+      <Link
+        href="/blog/realtime-poll"
+        className=" flex justify-between group w-full "
+      >
+        <p className="group-hover:underline">{title}</p>
+        <p>
+          {date.toLocaleDateString("en-us", {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          })}
+        </p>
+      </Link>
+    </li>
+  );
+};
 
 type Props = {
   href: string;
