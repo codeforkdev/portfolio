@@ -1,17 +1,20 @@
-import PartySocket from "partysocket";
 import BlogHeader from "../_components/BlogHeader";
 import Poll from "./_components/Poll";
 import Code from "./Highlight";
 
 export default async function Page() {
-  const response = await fetch(
-    "https://portfolio-party.codeforkdev.partykit.dev",
-    {
-      next: { revalidate: 0 },
-    }
-  );
-  const poll = await response.json();
-  console.log("POLL", poll);
+  let poll = {};
+  try {
+    const response = await fetch(
+      "https://portfolio-party.codeforkdev.partykit.dev",
+      {
+        next: { revalidate: 0 },
+      }
+    );
+
+    poll = await response.json();
+  } catch {}
+
   return (
     <div>
       <BlogHeader

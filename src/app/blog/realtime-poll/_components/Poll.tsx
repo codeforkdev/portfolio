@@ -10,7 +10,7 @@ export default function Poll({ poll }: { poll: Record<string, number> }) {
     Object.values(poll).reduce((acc, curr) => (acc += curr), 0)
   );
   const ws = usePartySocket({
-    host: "http://localhost:1999",
+    host: "https://portfolio-party.codeforkdev.partykit.dev",
     room: "test",
     party: "poll",
     onMessage: (evt) => {
