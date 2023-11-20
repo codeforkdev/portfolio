@@ -63,7 +63,7 @@ const Header = () => {
 
 const Socials = () => {
   return (
-    <div className="flex flex-col items-center gap-6 text-neutral-400">
+    <div className="flex flex-col items-center gap-6 text-neutral-400 fixed bottom-0">
       <Link
         href="https://github.com/codeforkdev"
         target="_blank"
@@ -92,7 +92,7 @@ const Socials = () => {
 const Email = () => {
   return (
     <div
-      className="hidden lg:flex items-center gap-6 "
+      className="hidden fixed bottom-0 lg:flex items-center gap-6 "
       style={{ writingMode: "vertical-rl" }}
     >
       <EmailDialogBtn>
